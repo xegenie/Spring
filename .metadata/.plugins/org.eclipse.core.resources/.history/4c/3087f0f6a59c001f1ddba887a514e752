@@ -1,0 +1,18 @@
+<%@page import="com.aloha.spring.dto.Person"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>/model/person</title>
+</head>
+<body>
+	<h1>이름 : ${ person.name }</h1>
+	<h1>나이 : ${ person.age }</h1>
+	<h1>이름 : <%= Person.getName() %></h1>
+	<h1>나이 : <%= person.getAge() %></h1>
+	
+	<hr>
+</body>
+</html>

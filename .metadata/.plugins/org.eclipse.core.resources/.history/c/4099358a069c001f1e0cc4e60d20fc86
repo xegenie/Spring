@@ -1,0 +1,22 @@
+package com.aloha.spring.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller		// Controller로 지정하고 빈 등록
+public class RequestController {
+	
+	private static final Logger logger = LoggerFactroy.getlogger(RequestController.class);
+	
+	/**
+	 * @RequestMapping : 요청 경로 매핑
+	 * - /request/board 로 요청
+	 * - /request/board.jsp 응답
+	 * @return
+	 */
+	@RequestMapping
+	public String request() {
+		return "request/board";
+	}
+	
+}

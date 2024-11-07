@@ -1,0 +1,15 @@
+package com.aloha.spring.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller		// Controller로 지정하고 빈 등록
+public class RequestController {
+	
+	// 요청 경로 매핑
+	@RequestMapping
+	public String request() {
+		return "request/board";
+	}
+	
+}

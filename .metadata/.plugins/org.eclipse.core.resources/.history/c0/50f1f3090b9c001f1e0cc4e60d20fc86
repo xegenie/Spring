@@ -1,0 +1,45 @@
+package com.aloha.spring.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller		// Controller로 지정하고 빈 등록
+@RequestMapping("/request")
+public class RequestController {
+	// log 객체
+	private static final Logger logger = LoggerFactory.getLogger(RequestController.class);
+	
+	/**
+	 * @RequestMapping : 요청 경로 매핑
+	 * - /request/board 로 요청
+	 * - /request/board.jsp 응답
+	 * @return
+	 */
+	@RequestMapping(value = "/board", method = RequestMethod.GET) // POST 안됨
+//	@RequestMapping("/request/board")
+//	@RequestMapping("/board")
+	public String request() {
+		logger.info("[GET] - /request/board");
+		return "request/board";
+	}
+	
+	/**
+	 * 경로 패턴 매핑
+	 * @param no
+	 * @return
+	 */
+	@RequestMapping(value = "/board/{no}", method = RequestMethod.GET)
+	public String requestPath(@PathVariable("no") long no) {
+		
+		logger.info("[GET] - /request/board/{no}");
+		logger.info("no : " + no );
+		
+		return "request/board";
+		
+	}
+	
+}

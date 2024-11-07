@@ -1,0 +1,8 @@
+package com.aloha.spring;
+
+public class Snippet {
+	com.aloha.spring.dao
+	com.aloha.spring.dto
+	com.aloha.spring.service
+}
+

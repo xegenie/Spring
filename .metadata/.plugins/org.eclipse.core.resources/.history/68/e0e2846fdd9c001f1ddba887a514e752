@@ -1,0 +1,209 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>/request/board</title>
+</head>
+<body>
+	<h1>/request/board</h1>
+	
+	<hr>
+	<h3>POST 방식으로 요청</h3>
+	<form action="<%= request.getContextPath()%>/request/board" method="post">
+		<input type="text" name="no" placeholder="번호 입력" />
+		<input type="submit" value="등록" />
+	</form>
+	
+	<hr>
+	<h3>PUT 요청</h3>
+	<form action="<%= request.getContextPath()%>/request/board" method="post">
+		<!-- form 태그에서는 PUT 방식 요청을 지원하지 않는다. -->
+		<!-- Spring 의 HiddenMethodFilter를 등록하면, 우회적으로 PUT 요청을 할 수 있다. -->
+		<!-- _mehod를 X-HTTP-Method_Override 헤더로 지정한다. -->
+		<!-- X-HTTP-Method_Override 헤더 값 : PUT -->
+		<input type="hidden" name="_method" value="PUT" />
+		<input type="text" name="no" placeholder="번호 입력" />
+		<input type="submit" value="수정" />
+	</form>
+	
+	<hr>
+	<h3>POST 방식으로 요청</h3>
+	<form action="<%= request.getContextPath()%>/request/body" method="post" enctype="application/x-www-form-urlencoded">
+		<input type="text" name="title" placeholder="title" /> <br>
+		<input type="text" name="writer" placeholder="writer" /> <br>
+		<input type="text" name="content" placeholder="content" /> <br>
+		<input type="submit" value="등록" />
+	</form>
+	
+	<h3>POST - checkbox 요청</h3>
+    <form action="<%= request.getContextPath() %>/request/check" 
+          method="post">
+          
+        <input type="checkbox" name="hobby" id="movie" value="movie" />
+        <label for="movie">영화감상</label>
+          
+        <input type="checkbox" name="hobby" id="music" value="music" />
+        <label for="music">음악감상</label>
+          
+        <input type="checkbox" name="hobby" id="book" value="book" />
+        <label for="book">독서</label>
+        
+        <input type="submit" value="등록">
+    </form>
+	
+	<h3>POST - 회원가입</h3>
+    <form action="<%= request.getContextPath() %>/request/user" 
+          method="post">
+           
+        <label for="id">아이디</label>
+        <input type="text" name="id" id="id" placeholder="아이디" />
+        <br>
+                
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name" placeholder="이름" />
+        <br>
+          
+        <input type="checkbox" name="hobby" id="movie" value="movie" />
+        <label for="movie">영화감상</label>
+          
+        <input type="checkbox" name="hobby" id="music" value="music" />
+        <label for="music">음악감상</label>
+          
+        <input type="checkbox" name="hobby" id="book" value="book" />
+        <label for="book">독서</label>
+        <br>
+          
+        <label for="birth">생일</label>
+        <input type="date" name="birth" id="birth" />
+        <br>
+        
+          
+        <input type="submit" value="회원가입">
+    </form>
+	
+	<h3>/request/file</h3>
+	<form action="${ pageContext.request.contextPath }/request/file" method="POST" enctype="multipart/form-data">
+		<input type="file" name="file" /> <br>
+		<input type="submit" value="업로드" />
+	</form>
+	
+	<hr>
+	
+	<h3>/request/file/multi</h3>
+	<form action="${ pageContext.request.contextPath }/request/file/multi" method="POST" enctype="multipart/form-data">
+		<input type="file" name="file" multiple /> <br>
+		<input type="submit" value="업로드" />
+	</form>
+	
+	<hr>
+	
+	<h3>/request/file/board</h3>
+	<form action="${ pageContext.request.contextPath }/request/file/board" method="POST" enctype="multipart/form-data">
+		<input type="text" name="title" placeholder="title" /> <br>
+		<input type="text" name="writer" placeholder="writer" /> <br>
+		<input type="text" name="content" placeholder="content" /> <br>
+		<input type="file" name="fileList" multiple /> <br>
+		<input type="submit" value="업로드" />
+	</form>
+	
+	<hr>
+	
+	<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>AJAX 파일 업로드</h1>
+	<form action="${ pageContext.request.contextPath }/request/ajax" method="POST"
+	      enctype="multipart/form-data">
+       <table class="board">
+           <tr>
+               <td class="label">제목</td>
+               <td class="data">
+                   <input type="text" name="title" id="title" class="input-text">
+               </td>
+           </tr>
+           <tr>
+               <td class="label">작성자</td>
+               <td class="data">
+                   <input type="text" name="writer" id="writer" class="input-text">
+               </td>
+           </tr>
+           <tr>
+               <td class="label">내용</td>
+               <td class="data">
+                   <textarea name="content" id="content" cols="30" rows="10" 
+                             class="input-textarea"></textarea>
+               </td>
+           </tr>
+           <tr>
+               <td class="label">파일</td>
+               <td class="data">
+                   <input type="file" name="file" id="file" multiple>
+               </td>
+           </tr>
+       </table>
+
+       <div class="btn-box">
+           <div class="item">
+               <a href="javascript:;" class="btn" id="btn-insert">등록</a>
+           </div>
+       </div>
+   </form>
+   
+   
+   <!-- script -->
+   <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+   <script>
+   // 등록 버튼 - 클릭 이벤트
+   $('#btn-insert').on('click', function() {
+       // 등록 요청
+       let formData = new FormData()       // 폼 데이터 객체
+
+       let title = $('#title').val()
+       let writer = $('#writer').val()
+       let content = $('#content').val()
+       
+       formData.append('title', title)
+       formData.append('writer', writer)
+       formData.append('content', content)
+       
+       // 파일 입력 가져오기
+       let file = $('#file')[0]
+       let files = file.files
+       // 파일 데이터 추가
+       for (let i = 0; i < files.length; i++) {
+           formData.append('file', files[i])
+       }
+
+       let url = 'http://localhost:8080/spring/request/ajax'
+       $.ajax({
+           url             :   url,
+           type            :   'POST',
+           data            :   formData,
+           contentType     :   false,
+           processData     :   false,      // 데이터 컨텐츠 타입 자동 변환 여부
+                                           // 기본값(true) 
+                                           // true  -> contentType  : application/x-www-form-urlencoded
+                                           // false -> contentType  : 데이터를 자동으로 처리하지 않고 직접 지정
+           success         : function(response) {
+               if( response == 'SUCCESS' ){
+                   alert('등록이 완료되었습니다.')
+               }
+           },
+           error           : function(request, status, error){
+               alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+           }
+       })
+   })
+   </script>
+</body>
+</html>
+</body>
+</html>

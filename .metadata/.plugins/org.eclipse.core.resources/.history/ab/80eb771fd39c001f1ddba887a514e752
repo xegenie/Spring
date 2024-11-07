@@ -1,0 +1,12 @@
+package com.aloha.spring.dto;
+
+import java.util.Date;
+
+public class User {
+	
+	private String id;
+	private String Name;
+	private String hobby;
+	private Date birth;
+	
+}

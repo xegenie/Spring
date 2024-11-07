@@ -1,0 +1,27 @@
+INDEX VERSION 1.131
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\620733886.index
+\spring-mvc\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2032037134.index
+\spring-aop\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\161269474.index
+\spring-mvc\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3924701832.index
+\spring-di4\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1557066167.index
+\sample\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3485352046.index
+\spring-di2\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\285019443.index
+\spring-mvc\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3243878591.index
+\spring-di3\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1022379119.index
+\spring-mvc\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1823557430.index
+\test\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2474717363.index
+\spring.di\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3365306790.index
+\spring-di\src\main\java
+D:\LSJ\spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2910770486.index
+\spring-mvc\src\main\java

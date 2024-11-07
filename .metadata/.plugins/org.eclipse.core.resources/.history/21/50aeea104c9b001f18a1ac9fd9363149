@@ -1,0 +1,8 @@
+package com.aloha.spring.service;
+
+public interface BoardService {
+
+	// 게시글 목록
+	public List<Board> list();
+	
+}
